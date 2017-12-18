@@ -14,6 +14,10 @@ electron-packager . origamiapp
 ```
 # Screenshot
 
+### macos
+
 ![](electron.png)
 
+### windows
 
+![](windows.png)
