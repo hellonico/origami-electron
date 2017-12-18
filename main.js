@@ -38,7 +38,7 @@ function createWindow () {
 
 function startServer() {
   var cp = require('child_process');
-  if (process.platform.startsWith('win') { 
+  if (process.platform.startsWith('win')) { 
     cp.exec("lein.bat notebook", {cwd: __dirname+"/origami/"}, function(error,stdout,stderr){
      console.log(stdout);
      console.log(stderr);
