@@ -7,9 +7,9 @@
     "start": "electron ."
   },
   "author": "Nicolas Modrzyk",
-  "license": "CC0-1.0",
+  "license": "EPL",
   "devDependencies": {
-    "electron": "~1.7.8"
+    "electron": "~1.7.9"
   },
   "build": {
     "extraResources": [
