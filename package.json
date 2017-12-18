@@ -1,22 +1,19 @@
 {
-  "name": "electron-quick-start",
+  "name": "origamiapp",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Electron based application for Origami",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
+  "author": "Nicolas Modrzyk",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "~1.7.8"
+  },
+  "build": {
+    "extraResources":  [
+       "origami"
+    ]
   }
 }

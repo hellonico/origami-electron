@@ -1,11 +1,14 @@
+// https://www.fyears.org/2017/02/electron-as-gui-of-python-apps-updated.html
+
 const electron = require('electron')
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
+
 const path = require('path')
-const url = require('url')
+// const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -13,14 +16,13 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({
+    width: 800, 
+    height: 600, 
+    webPreferences: {nodeIntegration: false   }})
 
   // and load the index.html of the app.
-  mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  mainWindow.loadURL('http://localhost:10000/worksheet.html?filename=notes/practice.clj')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -34,15 +36,38 @@ function createWindow () {
   })
 }
 
+function startServer() {
+  var cp = require('child_process');
+  if (process.platform == 'windows') { 
+    cp.exec("lein.bat notebook", {cwd: __dirname+"/origami/"}, function(error,stdout,stderr){
+     console.log(stdout);
+     console.log(stderr);
+    });  
+  } else {
+    cp.exec("./lein notebook", {cwd: __dirname+"/origami/"}, function(error,stdout,stderr){
+     console.log(stdout);
+     console.log(stderr);
+    });  
+  }
+  
+  setTimeout(function() {
+      mainWindow.webContents.reload();
+  }, 15000);
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', function() {
+  startServer()
+  createWindow()
+})
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
   // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
+
   if (process.platform !== 'darwin') {
     app.quit()
   }
