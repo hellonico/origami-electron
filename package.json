@@ -1,0 +1,19 @@
+{
+  "name": "origamiapp",
+  "version": "1.0.0",
+  "description": "Electron based application for Origami",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Nicolas Modrzyk",
+  "license": "EPL",
+  "devDependencies": {
+    "electron": "~1.7.9"
+  },
+  "build": {
+    "extraResources": [
+      "origami"
+    ]
+  }
+}
