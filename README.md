@@ -26,3 +26,4 @@ electron-packager . origamiapp
 
 ![](linux.png)
 
+Copyright - Nicolas Modrzyk 2017
