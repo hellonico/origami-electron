@@ -21,3 +21,8 @@ electron-packager . origamiapp
 ### windows
 
 ![](windows.PNG)
+
+### linux (manjaro)
+
+![](linux.png)
+
