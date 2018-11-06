@@ -35,24 +35,36 @@ function createWindow () {
     mainWindow = null
   })
 }
+const fs = require('fs');
+
 
 function startServer() {
   var cp = require('child_process');
   if (process.platform.startsWith('win')) { 
     cp.exec("lein.bat notebook", {cwd: __dirname+"/origami/"}, function(error,stdout,stderr){
-     console.log(stdout);
-     console.log(stderr);
+     fs.appendFile('error.txt', error, function (err) {
+      
+        // console.log('Saved!');
+     });
+
     });  
   } else {
-    cp.exec("./lein notebook", {cwd: __dirname+"/origami/"}, function(error,stdout,stderr){
-     console.log(stdout);
-     console.log(stderr);
+    cp.exec("lein notebook", {cwd: __dirname+"/origami/"}, function(error,stdout,stderr){
+     fs.appendFile('error.txt', error, function (err) {
+      
+     });
+     fs.appendFile('error.txt', stderr, function (err) {
+      
+     });
+      fs.appendFile('error.txt', stdout, function (err) {
+      
+     });
     });  
   }
   
   setTimeout(function() {
       mainWindow.webContents.reload();
-  }, 15000);
+  }, 20000);
 }
 
 // This method will be called when Electron has finished

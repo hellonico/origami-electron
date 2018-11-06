@@ -9,8 +9,8 @@ npm start
 
 ```
 npm install electron-packager -g
-electron-packager . origamiapp
-
+git clone git@github.com:hellonico/origami_samples.git origami
+electron-packager . origamiapp --overwrite
 ```
 # Screenshot
 
@@ -26,4 +26,4 @@ electron-packager . origamiapp
 
 ![](linux.png)
 
-Copyright - Nicolas Modrzyk 2017
+Copyright - Nicolas Modrzyk 2018
