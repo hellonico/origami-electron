@@ -9,7 +9,7 @@
   "author": "Nicolas Modrzyk",
   "license": "EPL",
   "devDependencies": {
-    "electron": "~1.7.9"
+    "electron": "1.7.16"
   },
   "build": {
     "extraResources": [
