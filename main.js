@@ -1,11 +1,11 @@
 // https://www.fyears.org/2017/02/electron-as-gui-of-python-apps-updated.html
 
-const electron = require('electron')
-// Module to control application life.
-const app = electron.app
-// Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow
-
+// const electron = require('electron')
+// // Module to control application life.
+// const app = electron.app
+// // Module to create native browser window.
+// const BrowserWindow = electron.BrowserWindow
+const { app, BrowserWindow } = require('electron')
 
 const path = require('path')
 // const url = require('url')

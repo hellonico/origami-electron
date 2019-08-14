@@ -1,6 +1,6 @@
 {
   "name": "origamiapp",
-  "version": "4.0.0-beta7",
+  "version": "4.1.1-1",
   "description": "Electron based application for Origami",
   "main": "main.js",
   "scripts": {
